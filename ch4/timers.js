@@ -9,7 +9,7 @@
 //diff of time ticker					starts at 500 ends at 30,000 		
 
  
-
+var debug = "false"; // change to true to see debug data
 var time_step = 12; // imitates average increment from time function but is a constant so display should be smoother. 
 var playtime = 500;
 
@@ -22,7 +22,7 @@ var goplaytime = function() { // get next time step.
 
 
 
-//var divd = document.getElementById('debug'); //I'll uncoment this out later once I figure out how to edit the webpage this is attached to.
+var divd = document.getElementById('debug'); 
 var width = 600,
     height = 600,
     svg = d3.select('#graph')
@@ -91,11 +91,15 @@ var step = function (time) {
     
     var t = t_scale(time),
         pos = position(t);
-	//divd.innerHTML = divd.innerHTML + '<br> '+t + ' '+ time;
+		if(debug == "true"){
+		divd.innerHTML = divd.innerHTML + '<br> '+t + ' '+ time;
+		}
 		
 		change_color();
 		
-		//divd.innerHTML = divd.innerHTML + ' '+ colordraw;
+		if(debug == "true"){
+		divd.innerHTML = divd.innerHTML + ' '+ colordraw;
+		}
 	
     brush.attr({cx: x(pos.x),
                 cy: y(pos.y)});
@@ -121,12 +125,14 @@ var hotstepper = function () {  //added function
     
     var t = t_scale(sheeptime),
         pos = position(t);
+        if(debug == "true"){
 	divd.innerHTML = divd.innerHTML + '<br> '+t + ' '+ sheeptime;
-		
+        }
 		change_color();
-		
+		if(debug == "true"){
 		divd.innerHTML = divd.innerHTML + ' '+ colordraw;
-	
+		}
+		
     brush.attr({cx: x(pos.x),
                 cy: y(pos.y)});
     svg.append('line')
