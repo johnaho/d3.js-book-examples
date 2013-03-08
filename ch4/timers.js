@@ -1,4 +1,6 @@
 <script >
+// edit - this is an attempt to get the spirograph example a bit more prettier and less dependent on whethere or not the 
+// 		tab is active.
 // analytics with the top 3 or so maxes thrown away as aberations. 
 //            time                    t_scale
 //min is:    0.000851957				min is:	4	
